@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Thinktecture.IdentityModel.Owin.ResourceAuthorization;
 
-namespace EmbeddedMvc
+namespace Ajf.IdentityServer
 {
     public class AuthorizationManager : ResourceAuthorizationManager
     {

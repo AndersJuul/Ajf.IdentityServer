@@ -17,6 +17,7 @@ using IdentityServer3.Core;
 using IdentityServer3.Core.Configuration;
 using IdentityModel.Client;
 using System.Threading.Tasks;
+using Ajf.IdentityServer;
 
 [assembly: OwinStartup(typeof(EmbeddedMvc.Startup))]
 
