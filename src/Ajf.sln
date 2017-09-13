@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ajf.IdentityServer", "EmbeddedMvc\Ajf.IdentityServer.csproj", "{6FF07508-76CF-459D-AA97-76B3BAD58D65}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ajf.IdentityServer", "Ajf.IdentityServer\Ajf.IdentityServer.csproj", "{6FF07508-76CF-459D-AA97-76B3BAD58D65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
