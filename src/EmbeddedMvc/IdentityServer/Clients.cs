@@ -17,11 +17,11 @@ namespace EmbeddedMvc.IdentityServer
 
                     RedirectUris = new List<string>
                     {
-                        "https://localhost:44319/"
+                        "https://localhost:3000/"
                     },
                     PostLogoutRedirectUris = new List<string>
                     {
-                        "https://localhost:44319/"
+                        "https://localhost:3000/"
                     },
                     AllowedScopes = new List<string>
                     {

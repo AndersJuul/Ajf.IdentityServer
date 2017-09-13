@@ -62,12 +62,12 @@ namespace EmbeddedMvc
 
             app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
                 {
-                    Authority = "https://localhost:44319/identity",
+                    Authority = "https://localhost:3000/identity",
 
                     ClientId = "mvc",
                     Scope = "openid profile roles sampleApi",
                     ResponseType = "id_token token",
-                    RedirectUri = "https://localhost:44319/",
+                    RedirectUri = "https://localhost:3000/",
 
                     SignInAsAuthenticationType = "Cookies",
                     UseTokenLifetime = false,

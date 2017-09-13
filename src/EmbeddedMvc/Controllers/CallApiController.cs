@@ -43,7 +43,7 @@ namespace EmbeddedMvc.Controllers
         private async Task<TokenResponse> GetTokenAsync()
         {
             var client = new TokenClient(
-                "https://localhost:44319/identity/connect/token",
+                "https://localhost:3000/identity/connect/token",
                 "mvc_service",
                 "secret");
 
