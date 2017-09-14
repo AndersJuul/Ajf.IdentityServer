@@ -29,6 +29,7 @@ namespace WebHost
             {
                 SigningCertificate = Certificate.Load(),
                 Factory = factory,
+                RequireSsl = false
             };
 
             app.Map("/core", idsrvApp =>
