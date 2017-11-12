@@ -44,8 +44,8 @@ namespace IdentityServer3.Host.Config
 
                     new Scope
                     {
-                        Name = "read",
-                        DisplayName = "Read data",
+                        Name = "RideShare.Events.Read",
+                        DisplayName = "Read data about events",
                         Type = ScopeType.Resource,
                         Emphasize = false,
 
@@ -54,45 +54,57 @@ namespace IdentityServer3.Host.Config
                             new Secret("secret".Sha256())
                         }
                     },
-                    new Scope
-                    {
-                        Name = "write",
-                        DisplayName = "Write data",
-                        Type = ScopeType.Resource,
-                        Emphasize = true,
+                    //new Scope
+                    //{
+                    //    Name = "read",
+                    //    DisplayName = "Read data",
+                    //    Type = ScopeType.Resource,
+                    //    Emphasize = false,
 
-                        ScopeSecrets = new List<Secret>
-                        {
-                            new Secret("secret".Sha256())
-                        }
-                    },
-                    new Scope
-                    {
-                        Name = "idmgr",
-                        DisplayName = "IdentityManager",
-                        Type = ScopeType.Resource,
-                        Emphasize = true,
-                        ShowInDiscoveryDocument = false,
+                    //    ScopeSecrets = new List<Secret>
+                    //    {
+                    //        new Secret("secret".Sha256())
+                    //    }
+                    //},
+                    //new Scope
+                    //{
+                    //    Name = "write",
+                    //    DisplayName = "Write data",
+                    //    Type = ScopeType.Resource,
+                    //    Emphasize = true,
+
+                    //    ScopeSecrets = new List<Secret>
+                    //    {
+                    //        new Secret("secret".Sha256())
+                    //    }
+                    //},
+                    //new Scope
+                    //{
+                    //    Name = "idmgr",
+                    //    DisplayName = "IdentityManager",
+                    //    Type = ScopeType.Resource,
+                    //    Emphasize = true,
+                    //    ShowInDiscoveryDocument = false,
                         
-                        Claims = new List<ScopeClaim>
-                        {
-                            new ScopeClaim(Constants.ClaimTypes.Name),
-                            new ScopeClaim(Constants.ClaimTypes.Role)
-                        }
-                    },
-                    new Scope
-                    {
-                        Enabled = true,
-                        DisplayName = "Sample API",
-                        Name = "sampleApi",
-                        Description = "Access to a sample API",
-                        Type = ScopeType.Resource,
+                    //    Claims = new List<ScopeClaim>
+                    //    {
+                    //        new ScopeClaim(Constants.ClaimTypes.Name),
+                    //        new ScopeClaim(Constants.ClaimTypes.Role)
+                    //    }
+                    //},
+                    //new Scope
+                    //{
+                    //    Enabled = true,
+                    //    DisplayName = "Sample API",
+                    //    Name = "sampleApi",
+                    //    Description = "Access to a sample API",
+                    //    Type = ScopeType.Resource,
 
-                        Claims = new List<ScopeClaim>
-                        {
-                            new ScopeClaim("role")
-                        }
-                    }
+                    //    Claims = new List<ScopeClaim>
+                    //    {
+                    //        new ScopeClaim("role")
+                    //    }
+                    //}
                 };
         }
     }

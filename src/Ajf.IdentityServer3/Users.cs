@@ -27,7 +27,7 @@ namespace IdentityServer3.Host.Config
         {
             var users = new List<InMemoryUser>
             {
-                new InMemoryUser{Subject = "818727", Username = "alice", Password = "alice", 
+                new InMemoryUser{Subject = "818727", Username = "alice", Password = "alice",
                     Claims = new Claim[]
                     {
                         new Claim(Constants.ClaimTypes.Name, "Alice Smith"),
@@ -41,7 +41,7 @@ namespace IdentityServer3.Host.Config
                         new Claim(Constants.ClaimTypes.Address, @"{ ""street_address"": ""One Hacker Way"", ""locality"": ""Heidelberg"", ""postal_code"": 69118, ""country"": ""Germany"" }", Constants.ClaimValueTypes.Json)
                     }
                 },
-                new InMemoryUser{Subject = "88421113", Username = "bob", Password = "bob", 
+                new InMemoryUser{Subject = "88421113", Username = "bob", Password = "bob",
                     Claims = new Claim[]
                     {
                         new Claim(Constants.ClaimTypes.Name, "Bob Smith"),

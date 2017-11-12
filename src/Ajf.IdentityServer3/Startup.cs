@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using System.Configuration;
+using Microsoft.Owin;
 using Owin;
 using Configuration;
 using IdentityServer3.Core.Configuration;
@@ -29,7 +30,8 @@ namespace WebHost
             {
                 SigningCertificate = Certificate.Load(),
                 Factory = factory,
-                RequireSsl = false
+                RequireSsl = ConfigurationManager.AppSettings["RequireSsl"]!="false",
+                PublicOrigin = ConfigurationManager.AppSettings["PublicOrigin"] ,
             };
 
             app.Map("/core", idsrvApp =>
