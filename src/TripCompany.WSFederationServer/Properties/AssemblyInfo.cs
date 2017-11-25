@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TripCompany.IdentityServer")]
+[assembly: AssemblyTitle("TripCompany.WSFederationServer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TripCompany.IdentityServer")]
+[assembly: AssemblyProduct("TripCompany.WSFederationServer")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("76ac9673-c6fc-4ff8-8bee-d1d9fde87fd1")]
+[assembly: Guid("ff7b53e2-bd44-4ed0-a2b1-5fecbef9ac57")]
 
 // Version information for an assembly consists of the following four values:
 //

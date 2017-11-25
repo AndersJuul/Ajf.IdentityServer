@@ -1,43 +1,156 @@
-﻿using System.Configuration;
-using Microsoft.Owin;
+﻿using IdentityServer3.Core.Configuration;
+using IdentityServer3.Core.Services;
+using IdentityServer3.Core.Services.Default;
+using IdentityServer3.Core.Services.InMemory;
+using Microsoft.Owin.Security.Facebook;
+using Microsoft.Owin.Security.WsFederation;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Owin;
-using Configuration;
-using IdentityServer3.Core.Configuration;
-using Serilog;
-using IdentityServer3.Host.Config;
-
-[assembly: OwinStartup(typeof(WebHost.Startup))]
-
-namespace WebHost
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Threading.Tasks;
+using TripCompany.IdentityServer.Config;
+using TripCompany.IdentityServer.Services;
+ 
+namespace TripCompany.IdentityServer
 {
     public class Startup
     {
         public void Configuration(IAppBuilder app)
         {
-            Log.Logger = new LoggerConfiguration()
-                //.WriteTo.Trace(outputTemplate: "{Timestamp} [{Level}] ({Name}){NewLine} {Message}{NewLine}{Exception}")
-                .ReadFrom.AppSettings()
-                .CreateLogger();
+          
 
-            Log.Logger.Information("Starting...");
-
-            var factory = new IdentityServerServiceFactory()
-                        .UseInMemoryUsers(Users.Get())
-                        .UseInMemoryClients(Clients.Get())
-                        .UseInMemoryScopes(Scopes.Get());
-
-            var options = new IdentityServerOptions
+            app.Map("/identity", idsrvApp =>
             {
-                SigningCertificate = Certificate.Load(),
-                Factory = factory,
-                RequireSsl = ConfigurationManager.AppSettings["RequireSsl"]!="false",
-                PublicOrigin = ConfigurationManager.AppSettings["PublicOrigin"] ,
-            };
+ 
+                var corsPolicyService = new DefaultCorsPolicyService()
+                {
+                    AllowAll = true
+                };
+                
+                var defaultViewServiceOptions = new DefaultViewServiceOptions();
+                defaultViewServiceOptions.CacheViews = false;
 
-            app.Map("/core", idsrvApp =>
-            {
+                var idServerServiceFactory = new IdentityServerServiceFactory()
+                                .UseInMemoryClients(Clients.Get())
+                                .UseInMemoryScopes(Scopes.Get());
+                              //  .UseInMemoryUsers(Users.Get());
+
+                idServerServiceFactory.CorsPolicyService = new
+                    Registration<IdentityServer3.Core.Services.ICorsPolicyService>(corsPolicyService);
+
+                idServerServiceFactory.ConfigureDefaultViewService(defaultViewServiceOptions);
+
+                // use custom UserService
+                var customUserService = new CustomUserService();
+                idServerServiceFactory.UserService = new Registration<IUserService>(resolver => customUserService);
+
+                var options = new IdentityServerOptions
+                {
+                    Factory = idServerServiceFactory,
+                    SiteName = "TripCompany Security Token Service",
+                    SigningCertificate = LoadCertificate(),
+                    IssuerUri = TripGallery.Constants.TripGalleryIssuerUri,
+                    PublicOrigin = TripGallery.Constants.TripGallerySTSOrigin,
+                    AuthenticationOptions = new AuthenticationOptions()
+                    {
+                        EnablePostSignOutAutoRedirect = true,
+                        LoginPageLinks = new List<LoginPageLink>()
+                        {
+                            new LoginPageLink()
+                            {
+                                Type= "createaccount",
+                                Text = "Create a new account",
+                                Href = "~/createuseraccount"
+                            }
+                        },
+                        IdentityProviders = ConfigureAdditionalIdProviders
+                    },
+                    CspOptions = new CspOptions()
+                    {
+                         Enabled = false                        
+                         // once available, leave Enabled at true and use:
+                         // FrameSrc = "https://localhost:44318 https://localhost:44316"
+                         // or
+                         // FrameSrc = "*" for all URI's.
+                    }
+                };
+
                 idsrvApp.UseIdentityServer(options);
             });
+        }
+
+        private void ConfigureAdditionalIdProviders(IAppBuilder appBuilder, string signInAsType)
+        {
+            var fbAuthOptions = new FacebookAuthenticationOptions
+            {
+                AuthenticationType = "Facebook",
+                SignInAsAuthenticationType = signInAsType,
+                AppId = "895739530475035",
+                AppSecret = "af8fb8900e65ebd7b7056265d130c3ee",                 
+                Provider = new Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider()
+                { 
+                    OnAuthenticated = (context) =>
+                    {
+                        using (var client = new HttpClient())
+                        {
+                            // get claims from FB's graph 
+
+                            var result = client.GetAsync("https://graph.facebook.com/me?fields=first_name,last_name,email&access_token="
+                              + context.AccessToken).Result;
+
+                            if (result.IsSuccessStatusCode)
+                            {
+                                var userInformation = result.Content.ReadAsStringAsync().Result;
+                                var fbUser = JsonConvert.DeserializeObject<FacebookUser>(userInformation);
+
+                                context.Identity.AddClaim(new System.Security.Claims.Claim(
+                                    IdentityServer3.Core.Constants.ClaimTypes.GivenName, fbUser.first_name));
+                                context.Identity.AddClaim(new System.Security.Claims.Claim(
+                                    IdentityServer3.Core.Constants.ClaimTypes.FamilyName, fbUser.last_name));
+                                context.Identity.AddClaim(new System.Security.Claims.Claim(
+                                 IdentityServer3.Core.Constants.ClaimTypes.Email, fbUser.email));               
+
+                                //// there's no role concept...
+                                //context.Identity.AddClaim(new System.Security.Claims.Claim(
+                                //    "role", "FreeUser"));
+                            }
+                         
+                        }
+
+                         return Task.FromResult(0);
+                    }
+                }
+            };
+            fbAuthOptions.Scope.Add("email");
+
+            appBuilder.UseFacebookAuthentication(fbAuthOptions);
+
+            //var windowsAuthentication = new WsFederationAuthenticationOptions
+            //{
+            //    AuthenticationType = "windows",
+            //    Caption = "Windows",
+            //    SignInAsAuthenticationType = signInAsType,
+            //    MetadataAddress = "https://localhost/Ajf.WSFederationServer/",
+            //    Wtrealm = "urn:win"
+
+            //};
+            //appBuilder.UseWsFederationAuthentication(windowsAuthentication);
+        }
+
+
+
+
+        X509Certificate2 LoadCertificate()
+        {
+            return new X509Certificate2(
+                string.Format(@"{0}\certificates\idsrv3test.pfx",
+                AppDomain.CurrentDomain.BaseDirectory), "idsrv3test");
         }
     }
 }
