@@ -52,6 +52,7 @@ namespace TripCompany.IdentityServer
 
                 var options = new IdentityServerOptions
                 {
+                    RequireSsl = false,
                     Factory = idServerServiceFactory,
                     SiteName = "TripCompany Security Token Service",
                     SigningCertificate = LoadCertificate(),
