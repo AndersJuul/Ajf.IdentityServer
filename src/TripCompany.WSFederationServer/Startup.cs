@@ -2,6 +2,7 @@
 using Owin;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -17,7 +18,7 @@ namespace TripCompany.WSFederationServer
             app.UseWindowsAuthenticationService(new WindowsAuthenticationOptions
             {
                 IdpRealm = "urn:win",
-                IdpReplyUrl = TripGallery.Constants.TripGallerySTS + "/was",
+                IdpReplyUrl = ConfigurationManager.AppSettings["IdentityServerUrl"] + "/was",
                 PublicOrigin = "https://localhost:44330/",
                 SigningCertificate = LoadCertificate(),
                 CustomClaimsProvider = new AdditionalWindowsClaimsProvider()

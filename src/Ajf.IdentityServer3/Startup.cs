@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 using Owin;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Security.Cryptography.X509Certificates;
@@ -57,7 +58,7 @@ namespace TripCompany.IdentityServer
                     SiteName = "TripCompany Security Token Service",
                     SigningCertificate = LoadCertificate(),
                     IssuerUri = TripGallery.Constants.TripGalleryIssuerUri,
-                    PublicOrigin = TripGallery.Constants.TripGallerySTSOrigin,
+                    PublicOrigin =ConfigurationManager.AppSettings["IdentityServerUrl"],
                     AuthenticationOptions = new AuthenticationOptions()
                     {
                         EnablePostSignOutAutoRedirect = true,
