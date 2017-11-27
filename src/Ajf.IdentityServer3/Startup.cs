@@ -53,7 +53,7 @@ namespace TripCompany.IdentityServer
 
                 var options = new IdentityServerOptions
                 {
-                    RequireSsl = ConfigurationManager.AppSettings["RequireSsl"]=="1",
+                    RequireSsl = ConfigurationManager.AppSettings["RequireSsl"]=="true",
                     Factory = idServerServiceFactory,
                     SiteName = "TripCompany Security Token Service",
                     SigningCertificate = LoadCertificate(),

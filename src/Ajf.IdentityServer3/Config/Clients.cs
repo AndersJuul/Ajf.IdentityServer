@@ -94,11 +94,13 @@ namespace TripCompany.IdentityServer.Config
                     // redirect = URI of the MVC application
                     RedirectUris = new List<string>
                     { 
-                        TripGallery.Constants.TripGalleryMVC 
+                        TripGallery.Constants.TripGalleryMVC,
+                        "http://ajf-qa-02/RideShare"
                     }, 
                     PostLogoutRedirectUris = new List<string>()
                     {
-                         TripGallery.Constants.TripGalleryMVC 
+                         TripGallery.Constants.TripGalleryMVC
+                        "http://ajf-qa-02/RideShare"
                     }, 
                     ClientSecrets = new List<Secret>()
                     {
