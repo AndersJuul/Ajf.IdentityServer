@@ -99,7 +99,7 @@ namespace TripCompany.IdentityServer.Config
                     }, 
                     PostLogoutRedirectUris = new List<string>()
                     {
-                         TripGallery.Constants.TripGalleryMVC
+                         TripGallery.Constants.TripGalleryMVC,
                         "http://ajf-qa-02/RideShare"
                     }, 
                     ClientSecrets = new List<Secret>()

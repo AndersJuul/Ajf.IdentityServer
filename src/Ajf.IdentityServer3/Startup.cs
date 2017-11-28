@@ -15,6 +15,7 @@ using System.Net.Http;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Serilog;
 using TripCompany.IdentityServer.Config;
 using TripCompany.IdentityServer.Services;
  
@@ -24,7 +25,10 @@ namespace TripCompany.IdentityServer
     {
         public void Configuration(IAppBuilder app)
         {
-          
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Trace()
+                .CreateLogger();
 
             app.Map("/identity", idsrvApp =>
             {
