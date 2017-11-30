@@ -26,7 +26,7 @@ namespace TripCompany.IdentityServer
         public void Configuration(IAppBuilder app)
         {
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
+                .MinimumLevel.Verbose()
                 .WriteTo.Trace()
                 .CreateLogger();
 
