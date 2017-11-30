@@ -95,12 +95,14 @@ namespace TripCompany.IdentityServer.Config
                     RedirectUris = new List<string>
                     { 
                         TripGallery.Constants.TripGalleryMVC,
-                        "http://ajf-qa-02/RideShare/"
+                        "http://ajf-qa-02/RideShare/",
+                        "https://andersathome.dk/RideShare/"
                     }, 
                     PostLogoutRedirectUris = new List<string>()
                     {
-                         TripGallery.Constants.TripGalleryMVC,
-                        "http://ajf-qa-02/RideShare/"
+                        TripGallery.Constants.TripGalleryMVC,
+                        "http://ajf-qa-02/RideShare/",
+                        "https://andersathome.dk/RideShare/"
                     }, 
                     ClientSecrets = new List<Secret>()
                     {
