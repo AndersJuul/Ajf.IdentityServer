@@ -1,10 +1,5 @@
 ﻿using IdentityServer3.Core.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TripGallery;
 
 namespace TripCompany.IdentityServer.Config
 {
@@ -23,7 +18,7 @@ namespace TripCompany.IdentityServer.Config
 
                     ClientSecrets = new List<Secret>()
                     {
-                        new Secret(TripGallery.Constants.TripGalleryClientSecret.Sha256())
+                        new Secret("myrandomclientsecret".Sha256())
                     }
                     
                 }
@@ -38,12 +33,12 @@ namespace TripCompany.IdentityServer.Config
                     // redirect = URI of our callback controller in the MVC application
                     RedirectUris = new List<string>
                     { 
-                        TripGallery.Constants.TripGalleryMVCSTSCallback 
+                        "https://localhost:44318/stscallback" 
                     },           
 
                      ClientSecrets = new List<Secret>()
                     {
-                        new Secret(TripGallery.Constants.TripGalleryClientSecret.Sha256())
+                        new Secret("myrandomclientsecret".Sha256())
                     }                    
                 } ,
                 new Client 
@@ -59,13 +54,13 @@ namespace TripCompany.IdentityServer.Config
                     // redirect = URI of the Angular application
                     RedirectUris = new List<string>
                     { 
-                        TripGallery.Constants.TripGalleryAngular + "callback.html",
+                        "https://localhost:44316/" + "callback.html",
                         // for silent refresh
-                        TripGallery.Constants.TripGalleryAngular + "silentrefreshframe.html" 
+                        "https://localhost:44316/" + "silentrefreshframe.html" 
                     },     
                     PostLogoutRedirectUris = new List<string>()
                     {
-                         TripGallery.Constants.TripGalleryAngular + "index.html"
+                         "https://localhost:44316/" + "index.html"
                     }
                 }
                 ,
@@ -78,7 +73,7 @@ namespace TripCompany.IdentityServer.Config
 
                     ClientSecrets = new List<Secret>()
                     {
-                        new Secret(TripGallery.Constants.TripGalleryClientSecret.Sha256())
+                        new Secret("myrandomclientsecret".Sha256())
                     }                    
                 },
                 new Client 
@@ -94,19 +89,19 @@ namespace TripCompany.IdentityServer.Config
                     // redirect = URI of the MVC application
                     RedirectUris = new List<string>
                     { 
-                        TripGallery.Constants.TripGalleryMVC,
+                        "https://localhost:44318/",
                         "http://ajf-qa-02/RideShare/",
                         "https://andersathome.dk/RideShare/"
                     }, 
                     PostLogoutRedirectUris = new List<string>()
                     {
-                        TripGallery.Constants.TripGalleryMVC,
+                        "https://localhost:44318/",
                         "http://ajf-qa-02/RideShare/",
                         "https://andersathome.dk/RideShare/"
                     }, 
                     ClientSecrets = new List<Secret>()
                     {
-                        new Secret(TripGallery.Constants.TripGalleryClientSecret.Sha256())
+                        new Secret("myrandomclientsecret".Sha256())
                     }  
                 }  
 

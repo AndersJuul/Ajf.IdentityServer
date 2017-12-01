@@ -92,12 +92,6 @@
     <Compile Include="Services\AdditionalWindowsClaimsProvider.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TripGallery.Constants\TripGallery.Constants.csproj">
-      <Project>{1bec8dbc-04f3-4eea-b3d7-422d80a6acd1}</Project>
-      <Name>TripGallery.Constants</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

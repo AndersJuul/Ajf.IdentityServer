@@ -1,19 +1,14 @@
 ﻿using IdentityServer3.Core.Configuration;
 using IdentityServer3.Core.Services;
 using IdentityServer3.Core.Services.Default;
-using IdentityServer3.Core.Services.InMemory;
 using Microsoft.Owin.Security.Facebook;
-using Microsoft.Owin.Security.WsFederation;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Owin;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Net.Http;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using System.Threading.Tasks;
 using Serilog;
 using TripCompany.IdentityServer.Config;
@@ -61,7 +56,7 @@ namespace TripCompany.IdentityServer
                     Factory = idServerServiceFactory,
                     SiteName = "TripCompany Security Token Service",
                     SigningCertificate = LoadCertificate(),
-                    IssuerUri = TripGallery.Constants.TripGalleryIssuerUri,
+                    IssuerUri = "https://andersathome.dk/identity",
                     PublicOrigin =ConfigurationManager.AppSettings["IdentityServerUrl"],
                     AuthenticationOptions = new AuthenticationOptions()
                     {

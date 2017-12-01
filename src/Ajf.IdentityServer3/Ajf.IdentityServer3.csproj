@@ -218,10 +218,6 @@
       <Project>{7824d3ce-237a-4fc2-9678-04e4ebd81ef8}</Project>
       <Name>TripCompany.Repository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TripGallery.Constants\TripGallery.Constants.csproj">
-      <Project>{1bec8dbc-04f3-4eea-b3d7-422d80a6acd1}</Project>
-      <Name>TripGallery.Constants</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
