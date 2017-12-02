@@ -16,9 +16,5 @@ namespace Ajf.IdentityServer3.Models.Entities
 
         public DbSet<User> Users { get; set; }
 
-        public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
-        }
     }
 }
