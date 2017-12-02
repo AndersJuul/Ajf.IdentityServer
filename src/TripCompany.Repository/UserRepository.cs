@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TripCompany.Repository.Entities;
+using Ajf.IdentityServer3.Models.Entities;
 
 namespace TripCompany.Repository
 {
     public class UserRepository : IDisposable, TripCompany.Repository.IUserRepository
     {
-        UserContext _ctx;
+        ApplicationDbContext _ctx;
 
-        public UserRepository(UserContext userContext)
+        public UserRepository(ApplicationDbContext userContext)
         {
             _ctx = userContext;
         }
@@ -19,17 +17,23 @@ namespace TripCompany.Repository
         public UserRepository()
         {
             // no context passed in, assume default location
-            _ctx = new UserContext(@"app_data/userstore.json");
+            //_ctx = new UserContext(@"app_data/userstore.json");
+            _ctx = new ApplicationDbContext();
         }
 
         public User GetUser(string subject)
         {
-            return _ctx.Users.FirstOrDefault(u => u.Subject.ToLowerInvariant() == subject.ToLowerInvariant());
+            return _ctx
+                .Users
+                .Include("UserClaims")
+                .FirstOrDefault(u => u.Subject.ToLower() == subject.ToLower());
         }
 
         public User GetUser(string userName, string password)
         {
-            return _ctx.Users.FirstOrDefault(u => u.UserName == userName && u.Password == password);
+            return _ctx.Users
+                .Include("UserClaims")
+                .FirstOrDefault(u => u.UserName == userName && u.Password == password);
         }
 
         public IList<UserClaim> GetUserClaims(string subject)
@@ -127,7 +131,7 @@ namespace TripCompany.Repository
             Save();
         }
 
-        private bool Save()
+        private int Save()
         {
             return _ctx.SaveChanges();
         }

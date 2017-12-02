@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ajf.WSFederationServer", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ajf.IdentityServer3", "Ajf.IdentityServer3\Ajf.IdentityServer3.csproj", "{FBD3CF6A-CDE8-4347-9BEF-9EC877037C9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ajf.IdentityServer3.Migrate", "Ajf.IdentityServer3.Migrate\Ajf.IdentityServer3.Migrate.csproj", "{752FA731-29A2-4FF4-8AC4-6ABF7A19D000}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ajf.IdentityServer3.Models", "Ajf.IdentityServer3.Models\Ajf.IdentityServer3.Models.csproj", "{23CA5564-AFCD-4ECB-961D-2F895633DB46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{FBD3CF6A-CDE8-4347-9BEF-9EC877037C9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBD3CF6A-CDE8-4347-9BEF-9EC877037C9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBD3CF6A-CDE8-4347-9BEF-9EC877037C9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{752FA731-29A2-4FF4-8AC4-6ABF7A19D000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{752FA731-29A2-4FF4-8AC4-6ABF7A19D000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{752FA731-29A2-4FF4-8AC4-6ABF7A19D000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{752FA731-29A2-4FF4-8AC4-6ABF7A19D000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23CA5564-AFCD-4ECB-961D-2F895633DB46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23CA5564-AFCD-4ECB-961D-2F895633DB46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23CA5564-AFCD-4ECB-961D-2F895633DB46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23CA5564-AFCD-4ECB-961D-2F895633DB46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

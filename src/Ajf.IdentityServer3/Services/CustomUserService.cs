@@ -4,14 +4,11 @@ using IdentityServer3.Core.Services.Default;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TripCompany.Repository;
-using TripCompany.Repository.Entities;
 using IdentityServer3.Core.Extensions;
 using System.Security.Claims;
-using Microsoft.Owin;
-using IdentityServer3.Core.Services;
+using Ajf.IdentityServer3.Models.Entities;
 
 namespace TripCompany.IdentityServer.Services
 {

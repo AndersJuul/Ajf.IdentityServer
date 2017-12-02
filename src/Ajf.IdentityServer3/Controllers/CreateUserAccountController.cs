@@ -1,12 +1,9 @@
 ﻿using IdentityServer3.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using Ajf.IdentityServer3.Models.Entities;
 using TripCompany.IdentityServer.Models;
 using TripCompany.Repository;
-using TripCompany.Repository.Entities;
 
 namespace TripCompany.IdentityServer.Controllers
 {

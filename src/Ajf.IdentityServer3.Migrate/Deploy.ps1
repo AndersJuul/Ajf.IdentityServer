@@ -1,0 +1,1 @@
+﻿.\Ajf.IdentityServer3.Migrate.exe
