@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using IdentityServer3.Core.Extensions;
 using TripCompany.IdentityServer.Models;
-using TripCompany.Repository;
 using TripCompany.IdentityServer.Services;
 
 namespace TripCompany.IdentityServer.Controllers

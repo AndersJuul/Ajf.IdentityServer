@@ -206,9 +206,9 @@
       <Project>{23CA5564-AFCD-4ECB-961D-2F895633DB46}</Project>
       <Name>Ajf.IdentityServer3.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TripCompany.Repository\TripCompany.Repository.csproj">
-      <Project>{7824d3ce-237a-4fc2-9678-04e4ebd81ef8}</Project>
-      <Name>TripCompany.Repository</Name>
+    <ProjectReference Include="..\Ajf.IdentityServer3.Repository\Ajf.IdentityServer3.Repository.csproj">
+      <Project>{7824D3CE-237A-4FC2-9678-04E4EBD81EF8}</Project>
+      <Name>Ajf.IdentityServer3.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
