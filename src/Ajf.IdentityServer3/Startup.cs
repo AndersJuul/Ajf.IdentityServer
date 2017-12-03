@@ -1,10 +1,4 @@
-﻿using IdentityServer3.Core.Configuration;
-using IdentityServer3.Core.Services;
-using IdentityServer3.Core.Services.Default;
-using Microsoft.Owin.Security.Facebook;
-using Newtonsoft.Json;
-using Owin;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Net.Http;
@@ -12,9 +6,16 @@ using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Ajf.IdentityServer3.Config;
 using Ajf.IdentityServer3.Services;
+using IdentityServer3.Core.Configuration;
+using IdentityServer3.Core.Services;
+using IdentityServer3.Core.Services.Default;
+using Microsoft.Owin.Security.Facebook;
+using Newtonsoft.Json;
+using Owin;
 using Serilog;
+using TripCompany.IdentityServer;
 
-namespace TripCompany.IdentityServer
+namespace Ajf.IdentityServer3
 {
     public class Startup
     {
@@ -42,7 +43,7 @@ namespace TripCompany.IdentityServer
                               //  .UseInMemoryUsers(Users.Get());
 
                 idServerServiceFactory.CorsPolicyService = new
-                    Registration<IdentityServer3.Core.Services.ICorsPolicyService>(corsPolicyService);
+                    Registration<global::IdentityServer3.Core.Services.ICorsPolicyService>(corsPolicyService);
 
                 idServerServiceFactory.ConfigureDefaultViewService(defaultViewServiceOptions);
 
@@ -76,7 +77,7 @@ namespace TripCompany.IdentityServer
                     {
                          Enabled = false                        
                          // once available, leave Enabled at true and use:
-                         // FrameSrc = "https://localhost:44318 https://localhost:44316"
+                         // FrameSrc = "https://localhost/Ajf.RideShare.Web https://localhost:44316"
                          // or
                          // FrameSrc = "*" for all URI's.
                     }
@@ -111,11 +112,11 @@ namespace TripCompany.IdentityServer
                                 var fbUser = JsonConvert.DeserializeObject<FacebookUser>(userInformation);
 
                                 context.Identity.AddClaim(new System.Security.Claims.Claim(
-                                    IdentityServer3.Core.Constants.ClaimTypes.GivenName, fbUser.first_name));
+                                    global::IdentityServer3.Core.Constants.ClaimTypes.GivenName, fbUser.first_name));
                                 context.Identity.AddClaim(new System.Security.Claims.Claim(
-                                    IdentityServer3.Core.Constants.ClaimTypes.FamilyName, fbUser.last_name));
+                                    global::IdentityServer3.Core.Constants.ClaimTypes.FamilyName, fbUser.last_name));
                                 context.Identity.AddClaim(new System.Security.Claims.Claim(
-                                 IdentityServer3.Core.Constants.ClaimTypes.Email, fbUser.email));               
+                                 global::IdentityServer3.Core.Constants.ClaimTypes.Email, fbUser.email));               
 
                                 //// there's no role concept...
                                 //context.Identity.AddClaim(new System.Security.Claims.Claim(

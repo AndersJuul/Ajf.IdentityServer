@@ -32,8 +32,8 @@ namespace Ajf.IdentityServer3.Config
 
                     // redirect = URI of our callback controller in the MVC application
                     RedirectUris = new List<string>
-                    { 
-                        "https://localhost:44318/stscallback" 
+                    {
+                        "https://localhost/Ajf.RideShare.Web/stscallback"
                     },           
 
                      ClientSecrets = new List<Secret>()
@@ -88,14 +88,14 @@ namespace Ajf.IdentityServer3.Config
                                    
                     // redirect = URI of the MVC application
                     RedirectUris = new List<string>
-                    { 
-                        "https://localhost:44318/",
+                    {
+                        "https://localhost/Ajf.RideShare.Web/",
                         "http://ajf-qa-02/RideShare/",
                         "https://andersathome.dk/RideShare/"
                     }, 
                     PostLogoutRedirectUris = new List<string>()
                     {
-                        "https://localhost:44318/",
+                        "https://localhost/Ajf.RideShare.Web",
                         "http://ajf-qa-02/RideShare/",
                         "https://andersathome.dk/RideShare/"
                     }, 
