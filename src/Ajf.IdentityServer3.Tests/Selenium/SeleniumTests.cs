@@ -7,19 +7,11 @@ namespace Ajf.IdentityServer3.Tests.Selenium
     public class SeleniumTests : BaseSeleniumTests
     {
         [Test]
-        public void ThatFrankCanLogin()
+        public void ThatMainPageCanBeShown()
         {
-            //LoginFrank();
-
-            //Assert.AreEqual("Hovedside - Samkørsel", ChromeDriver.Title);
-        }
-
-        [Test]
-        public void ThatApiReturnsEvents()
-        {
-            //ChromeDriver.Navigate().GoToUrl(new Uri(BaseUri,"api/event"));
-
-            //Assert.AreEqual("Hovedside - Samkørsel", ChromeDriver.Title);
+            var findElementByClassName = ChromeDriver.FindElementByClassName("icon");
+            Assert.IsNotNull(findElementByClassName);
+            Assert.AreEqual(findElementByClassName.TagName,"img");
         }
     }
 }
