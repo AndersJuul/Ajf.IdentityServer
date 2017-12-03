@@ -1,7 +1,6 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
-namespace TripCompany.IdentityServer
+namespace Ajf.IdentityServer3
 {
     public class FilterConfig
     {

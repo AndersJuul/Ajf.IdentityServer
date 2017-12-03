@@ -1,11 +1,11 @@
-﻿using IdentityServer3.Core;
-using System;
+﻿using System;
 using System.Web.Mvc;
 using Ajf.IdentityServer3.Models.Entities;
+using IdentityServer3.Core;
 using TripCompany.IdentityServer.Models;
 using TripCompany.Repository;
 
-namespace TripCompany.IdentityServer.Controllers
+namespace Ajf.IdentityServer3.Controllers
 {
     public class CreateUserAccountController : Controller
     {

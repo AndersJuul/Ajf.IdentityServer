@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace TripCompany.IdentityServer.Services
+namespace Ajf.IdentityServer3.Services
 {
     public class TwoFactorTokenService : IDisposable
     {

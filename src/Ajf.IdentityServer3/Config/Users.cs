@@ -1,13 +1,9 @@
-﻿using IdentityServer3.Core;
-using IdentityServer3.Core.Services.InMemory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
+using IdentityServer3.Core;
+using IdentityServer3.Core.Services.InMemory;
 
-namespace TripCompany.IdentityServer.Config
+namespace Ajf.IdentityServer3.Config
 {
     public static class Users
     {

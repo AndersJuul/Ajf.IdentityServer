@@ -1,7 +1,6 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
-namespace TripCompany.IdentityServer
+namespace Ajf.IdentityServer3
 {
     public class BundleConfig
     {

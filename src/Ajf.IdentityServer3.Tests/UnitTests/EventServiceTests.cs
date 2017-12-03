@@ -1,12 +1,9 @@
 ﻿using NUnit.Framework;
-//using Ajf.RideShare.Web.Models.ApiModels;
-//using Ajf.RideShare.Web.Repositories;
-//using Ajf.RideShare.Web.Services;
 
 namespace Ajf.IdentityServer3.Tests.UnitTests
 {
     [TestFixture]
-    public class EventServiceTests:BaseUnitTests
+    public class EventServiceTests : BaseUnitTests
     {
         [SetUp]
         public override void SetUp()
@@ -15,7 +12,7 @@ namespace Ajf.IdentityServer3.Tests.UnitTests
         }
 
         [Test]
-        public void ThatServicePassesGetResultFromRepository()
+        public void DummyTest()
         {
             //// Arrange
             //var eventRepository = MockRepository.GenerateMock<IEventRepository>();

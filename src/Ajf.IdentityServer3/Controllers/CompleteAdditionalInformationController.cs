@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -9,8 +8,7 @@ using IdentityServer3.Core.Extensions;
 using TripCompany.IdentityServer.Models;
 using TripCompany.Repository;
 
-
-namespace TripCompany.IdentityServer.Controllers
+namespace Ajf.IdentityServer3.Controllers
 {
     public class CompleteAdditionalInformationController : Controller
     {
@@ -66,9 +64,9 @@ namespace TripCompany.IdentityServer.Controllers
                     {
                         Id = Guid.NewGuid().ToString(),
                         Subject = newUser.Subject,
-                        ClaimType = IdentityServer3.Core.Constants.ClaimTypes.Email,
+                        ClaimType = global::IdentityServer3.Core.Constants.ClaimTypes.Email,
                         ClaimValue = partialSignInUser.Claims.First(
-                          c => c.Type == IdentityServer3.Core.Constants.ClaimTypes.Email).Value
+                          c => c.Type == global::IdentityServer3.Core.Constants.ClaimTypes.Email).Value
                     });
 
                     // create claims from the model
@@ -76,14 +74,14 @@ namespace TripCompany.IdentityServer.Controllers
                     {
                         Id = Guid.NewGuid().ToString(),
                         Subject = newUser.Subject,
-                        ClaimType = IdentityServer3.Core.Constants.ClaimTypes.GivenName,
+                        ClaimType = global::IdentityServer3.Core.Constants.ClaimTypes.GivenName,
                         ClaimValue = model.FirstName
                     });
                     newUser.UserClaims.Add(new UserClaim()
                     {
                         Id = Guid.NewGuid().ToString(),
                         Subject = newUser.Subject,
-                        ClaimType = IdentityServer3.Core.Constants.ClaimTypes.FamilyName,
+                        ClaimType = global::IdentityServer3.Core.Constants.ClaimTypes.FamilyName,
                         ClaimValue = model.LastName
                     });
                   

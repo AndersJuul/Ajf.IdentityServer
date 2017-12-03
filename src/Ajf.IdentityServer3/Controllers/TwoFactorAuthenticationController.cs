@@ -1,11 +1,11 @@
 ﻿using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Ajf.IdentityServer3.Services;
 using IdentityServer3.Core.Extensions;
 using TripCompany.IdentityServer.Models;
-using TripCompany.IdentityServer.Services;
 
-namespace TripCompany.IdentityServer.Controllers
+namespace Ajf.IdentityServer3.Controllers
 {
     public class TwoFactorAuthenticationController : Controller
     {

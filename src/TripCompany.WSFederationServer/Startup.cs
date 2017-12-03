@@ -1,15 +1,11 @@
-﻿using IdentityServer.WindowsAuthentication.Configuration;
-using Owin;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Configuration;
-using System.Linq;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using TripCompany.WSFederationServer.Services;
+using Ajf.WSFederationServer.Services;
+using IdentityServer.WindowsAuthentication.Configuration;
+using Owin;
 
-namespace TripCompany.WSFederationServer
+namespace Ajf.WSFederationServer
 {
     public class Startup
     {

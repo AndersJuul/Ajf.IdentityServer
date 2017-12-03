@@ -1,16 +1,16 @@
-﻿using IdentityServer3.Core;
-using IdentityServer3.Core.Models;
-using IdentityServer3.Core.Services.Default;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using TripCompany.Repository;
-using IdentityServer3.Core.Extensions;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using Ajf.IdentityServer3.Models.Entities;
+using IdentityServer3.Core;
+using IdentityServer3.Core.Extensions;
+using IdentityServer3.Core.Models;
+using IdentityServer3.Core.Services.Default;
+using TripCompany.Repository;
 
-namespace TripCompany.IdentityServer.Services
+namespace Ajf.IdentityServer3.Services
 {
     public class CustomUserService : UserServiceBase
     {
@@ -141,7 +141,7 @@ namespace TripCompany.IdentityServer.Services
         }
 
 
-        public override Task AuthenticateLocalAsync(IdentityServer3.Core.Models.LocalAuthenticationContext context)
+        public override Task AuthenticateLocalAsync(global::IdentityServer3.Core.Models.LocalAuthenticationContext context)
         {
             using (var userRepository = new UserRepository())
             {
@@ -162,7 +162,7 @@ namespace TripCompany.IdentityServer.Services
             }
         }
          
-        public override Task GetProfileDataAsync(IdentityServer3.Core.Models.ProfileDataRequestContext context)
+        public override Task GetProfileDataAsync(global::IdentityServer3.Core.Models.ProfileDataRequestContext context)
         {
             using (var userRepository = new UserRepository())
             {
@@ -192,7 +192,7 @@ namespace TripCompany.IdentityServer.Services
             }
         }
 
-        public override Task IsActiveAsync(IdentityServer3.Core.Models.IsActiveContext context)
+        public override Task IsActiveAsync(global::IdentityServer3.Core.Models.IsActiveContext context)
         {
             using (var userRepository = new UserRepository())
             {

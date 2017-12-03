@@ -1,7 +1,7 @@
-﻿using IdentityServer3.Core.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using IdentityServer3.Core.Models;
 
-namespace TripCompany.IdentityServer.Config
+namespace Ajf.IdentityServer3.Config
 {
     public static class Clients
     {

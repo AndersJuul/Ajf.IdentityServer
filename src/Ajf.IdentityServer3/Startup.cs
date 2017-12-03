@@ -10,10 +10,10 @@ using System.Configuration;
 using System.Net.Http;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using Ajf.IdentityServer3.Config;
+using Ajf.IdentityServer3.Services;
 using Serilog;
-using TripCompany.IdentityServer.Config;
-using TripCompany.IdentityServer.Services;
- 
+
 namespace TripCompany.IdentityServer
 {
     public class Startup

@@ -1,11 +1,8 @@
-﻿using IdentityServer.WindowsAuthentication.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using IdentityServer.WindowsAuthentication.Services;
 
-namespace TripCompany.WSFederationServer.Services
+namespace Ajf.WSFederationServer.Services
 {
     public class AdditionalWindowsClaimsProvider : ICustomClaimsProvider
     {
