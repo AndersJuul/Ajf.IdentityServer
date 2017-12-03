@@ -54,7 +54,7 @@ namespace TripCompany.IdentityServer
                 {
                     RequireSsl = ConfigurationManager.AppSettings["RequireSsl"]=="true",
                     Factory = idServerServiceFactory,
-                    SiteName = "TripCompany Security Token Service",
+                    SiteName = "Ajf Security Token Service",
                     SigningCertificate = LoadCertificate(),
                     IssuerUri = "https://andersathome.dk/identity",
                     PublicOrigin =ConfigurationManager.AppSettings["IdentityServerUrl"],
