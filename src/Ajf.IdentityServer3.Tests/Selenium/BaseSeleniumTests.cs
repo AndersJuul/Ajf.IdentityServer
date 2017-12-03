@@ -21,6 +21,7 @@ namespace Ajf.IdentityServer3.Tests.Selenium
             BaseUri = new Uri(ConfigurationManager.AppSettings["IdentityServerApplicationUrl"]);
 
             ChromeDriver = new ChromeDriver();
+            ChromeDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             //ChromeDriver.Manage().Window.Maximize();
             ChromeDriver.Navigate().GoToUrl(BaseUri);
         }

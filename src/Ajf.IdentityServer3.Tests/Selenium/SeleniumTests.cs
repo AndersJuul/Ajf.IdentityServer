@@ -10,6 +10,7 @@ namespace Ajf.IdentityServer3.Tests.Selenium
         public void ThatMainPageCanBeShown()
         {
             var findElementByClassName = ChromeDriver.FindElementByClassName("icon");
+            
             Assert.IsNotNull(findElementByClassName);
             Assert.AreEqual(findElementByClassName.TagName,"img");
         }
