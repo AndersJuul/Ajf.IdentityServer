@@ -10,6 +10,7 @@ using IdentityServer3.Core.Configuration;
 using IdentityServer3.Core.Services;
 using IdentityServer3.Core.Services.Default;
 using Microsoft.Owin.Security.Facebook;
+using Microsoft.Owin.Security.Google;
 using Newtonsoft.Json;
 using Owin;
 using Serilog;
@@ -93,8 +94,8 @@ namespace Ajf.IdentityServer3
             {
                 AuthenticationType = "Facebook",
                 SignInAsAuthenticationType = signInAsType,
-                AppId = "895739530475035",
-                AppSecret = "af8fb8900e65ebd7b7056265d130c3ee",                 
+                AppId = "817115168495325",
+                AppSecret = "e7341ec68c4622a8cde93ad089452710",                 
                 Provider = new Microsoft.Owin.Security.Facebook.FacebookAuthenticationProvider()
                 { 
                     OnAuthenticated = (context) =>
@@ -133,6 +134,15 @@ namespace Ajf.IdentityServer3
 
             appBuilder.UseFacebookAuthentication(fbAuthOptions);
 
+            appBuilder.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions
+            {
+                AuthenticationType = "Google",
+                Caption = "Sign-in with Google",
+                SignInAsAuthenticationType = signInAsType,
+
+                ClientId = "827505327283-u8lgot2devkkk6qbuivpe23mmpdjirip.apps.googleusercontent.com",
+                ClientSecret = "CZbcrM2E0gP6exLzGu4Y5-Vy"
+            });
             //var windowsAuthentication = new WsFederationAuthenticationOptions
             //{
             //    AuthenticationType = "windows",
