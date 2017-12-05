@@ -100,6 +100,23 @@ namespace Ajf.IdentityServer3.Services
                             }).ToList();
                     }
 
+                    if (context.ExternalIdentity.Provider.ToLowerInvariant() == "google")
+                    {
+
+                        newUser.UserClaims = context.ExternalIdentity
+                            .Claims.Where(c =>
+                                c.Type.ToLowerInvariant() == Constants.ClaimTypes.GivenName
+                                || c.Type.ToLowerInvariant() == Constants.ClaimTypes.FamilyName
+                                || c.Type.ToLowerInvariant() == Constants.ClaimTypes.Email)
+                            .Select<Claim, UserClaim>(c => new UserClaim()
+                            {
+                                Id = Guid.NewGuid().ToString(),
+                                Subject = newUser.Subject,
+                                ClaimType = c.Type.ToLowerInvariant(),
+                                ClaimValue = c.Value
+                            }).ToList();
+                    }
+
                     // create a new user with the FreeUser role by default
                     newUser.UserClaims.Add(new UserClaim()
                     {
