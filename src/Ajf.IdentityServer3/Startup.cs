@@ -74,7 +74,8 @@ namespace Ajf.IdentityServer3
                                 Href = "~/createuseraccount"
                             }
                         },
-                        IdentityProviders = ConfigureAdditionalIdProviders
+                        IdentityProviders = ConfigureAdditionalIdProviders,
+                        EnableLocalLogin = ConfigurationManager.AppSettings["EnableLocalLogin"] == "true"
                     },
                     CspOptions = new CspOptions
                     {
