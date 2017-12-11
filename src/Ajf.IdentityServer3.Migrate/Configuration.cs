@@ -65,6 +65,13 @@ namespace Ajf.IdentityServer3.Migrate
                             ClaimValue = "PayingUser",
                             Subject = "b05d3546-6ca8-4d32-b95c-77e94d705ddf"
                         },
+                        new UserClaim
+                        {
+                            Id = "5",
+                            ClaimType = Constants.ClaimTypes.Email,
+                            ClaimValue = "kevin@dockx.dk",
+                            Subject = "b05d3546-6ca8-4d32-b95c-77e94d705ddf"
+                        },
                     }
 
                 });

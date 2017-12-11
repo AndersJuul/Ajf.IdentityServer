@@ -21,7 +21,8 @@ namespace Ajf.IdentityServer3.Config
                         new Claim(Constants.ClaimTypes.GivenName, "Kevin"),
                         new Claim(Constants.ClaimTypes.FamilyName, "Dockx"),
                         new Claim(Constants.ClaimTypes.Address, "1, Main Street, Antwerp, Belgium"),
-                        new Claim("role", "PayingUser")                  
+                        new Claim("role", "PayingUser")                  ,
+                        new Claim(Constants.ClaimTypes.Email,"kevin@dockx.dk")
                     }
 	             }
 	            ,
@@ -35,9 +36,10 @@ namespace Ajf.IdentityServer3.Config
                         new Claim(Constants.ClaimTypes.GivenName, "Sven"),
                         new Claim(Constants.ClaimTypes.FamilyName, "Vercauteren"),
                         new Claim(Constants.ClaimTypes.Address, "2, Main Road, Antwerp, Belgium"),
-                        new Claim("role", "FreeUser")
+                        new Claim("role", "FreeUser"),
+                        new Claim(Constants.ClaimTypes.Email,"sven@dockx.dk")
                     }
-	            }  
+                }  
             };
         }
     }
