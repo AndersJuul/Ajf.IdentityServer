@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Ajf.IdentityServer3.Models.Entities;
+using Ajf.IdentityServer3.Repository;
 using IdentityServer3.Core.Extensions;
 using TripCompany.IdentityServer.Models;
-using TripCompany.Repository;
 
 namespace Ajf.IdentityServer3.Controllers
 {

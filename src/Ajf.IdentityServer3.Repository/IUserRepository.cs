@@ -1,7 +1,6 @@
-﻿using System;
-using Ajf.IdentityServer3.Models.Entities;
+﻿using Ajf.IdentityServer3.Models.Entities;
 
-namespace TripCompany.Repository
+namespace Ajf.IdentityServer3.Repository
 {
     public interface IUserRepository
     {

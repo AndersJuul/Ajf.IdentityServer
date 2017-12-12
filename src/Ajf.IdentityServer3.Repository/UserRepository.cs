@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Ajf.IdentityServer3.Models.Entities;
 
-namespace TripCompany.Repository
+namespace Ajf.IdentityServer3.Repository
 {
-    public class UserRepository : IDisposable, TripCompany.Repository.IUserRepository
+    public class UserRepository : IDisposable, IUserRepository
     {
         ApplicationDbContext _ctx;
 
@@ -25,14 +25,14 @@ namespace TripCompany.Repository
         {
             return _ctx
                 .Users
-                .Include("UserClaims")
+                .Include("UserLogins").Include("UserClaims")
                 .FirstOrDefault(u => u.Subject.ToLower() == subject.ToLower());
         }
 
         public User GetUser(string userName, string password)
         {
             return _ctx.Users
-                .Include("UserClaims")
+                .Include("UserLogins").Include("UserClaims")
                 .FirstOrDefault(u => u.UserName == userName && u.Password == password);
         }
 
@@ -60,7 +60,7 @@ namespace TripCompany.Repository
 
         public User GetUserForExternalProvider(string loginProvider, string providerKey)
         {
-            foreach (var user in _ctx.Users)
+            foreach (var user in _ctx.Users.Include("UserLogins").Include("UserClaims"))
             {
                 if (user.UserLogins.Any(l => l.LoginProvider.ToLowerInvariant() == loginProvider.ToLowerInvariant()
                     && l.ProviderKey.ToLowerInvariant() == providerKey.ToLowerInvariant()))
@@ -74,7 +74,7 @@ namespace TripCompany.Repository
 
         public User GetUserByEmail(string email)
         {
-            foreach (var user in _ctx.Users)
+            foreach (var user in _ctx.Users.Include("UserLogins").Include("UserClaims"))
             {
                 if (user.UserClaims.Any(c => c.ClaimType == "email" 
                     && c.ClaimValue.ToLowerInvariant() == email.ToLowerInvariant()))
