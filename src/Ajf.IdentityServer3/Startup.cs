@@ -7,6 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Ajf.IdentityServer3.Config;
 using Ajf.IdentityServer3.Services;
+using Ajf.Nuget.Logging;
 using IdentityServer3.Core.Configuration;
 using IdentityServer3.Core.Services;
 using IdentityServer3.Core.Services.Default;
@@ -25,10 +26,17 @@ namespace Ajf.IdentityServer3
     {
         public void Configuration(IAppBuilder app)
         {
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Verbose()
-                .WriteTo.Trace()
+            //Log.Logger = new LoggerConfiguration()
+            //    .MinimumLevel.Verbose()
+            //    .WriteTo.Trace()
+            //    .CreateLogger();
+            Log.Logger = StandardLoggerConfigurator
+                .GetLoggerConfig().MinimumLevel
+                .Debug()
                 .CreateLogger();
+
+            Log.Logger.Information("Starting...");
+            Log.Logger.Information("Version is... " + ConfigurationManager.AppSettings["ReleaseNumber"]);
 
             app.Map("/identity", idsrvApp =>
             {
