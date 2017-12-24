@@ -26,10 +26,6 @@ namespace Ajf.IdentityServer3
     {
         public void Configuration(IAppBuilder app)
         {
-            //Log.Logger = new LoggerConfiguration()
-            //    .MinimumLevel.Verbose()
-            //    .WriteTo.Trace()
-            //    .CreateLogger();
             Log.Logger = StandardLoggerConfigurator
                 .GetLoggerConfig().MinimumLevel
                 .Debug()
