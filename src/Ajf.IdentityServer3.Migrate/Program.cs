@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Data.Entity.Migrations;
-using Ajf.IdentityServer3.Migrate;
 using Ajf.Nuget.Logging;
 using Serilog;
 
-namespace Ajf.RideShare.Migrate
+namespace Ajf.IdentityServer3.Migrate
 {
     class Program
     {
