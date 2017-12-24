@@ -1,9 +1,11 @@
-﻿using NUnit.Framework;
+﻿using System.Configuration;
+using Ajf.IdentityServer3.Models;
+using NUnit.Framework;
 
 namespace Ajf.IdentityServer3.Tests.UnitTests
 {
     [TestFixture]
-    public class EventServiceTests : BaseUnitTests
+    public class VeryBasicTests : BaseUnitTests
     {
         [SetUp]
         public override void SetUp()
@@ -12,7 +14,7 @@ namespace Ajf.IdentityServer3.Tests.UnitTests
         }
 
         [Test]
-        public void DummyTest()
+        public void EnsureDependingProjectGetsBuildPriorToTest()
         {
             //// Arrange
             //var eventRepository = MockRepository.GenerateMock<IEventRepository>();
@@ -22,6 +24,8 @@ namespace Ajf.IdentityServer3.Tests.UnitTests
 
             //// Act
             //var result = eventService.GetEvents();
+            new CreateUserAccountModel();
+            new Ajf.IdentityServer3.Migrate.Configuration();
 
             //// Assert
             //Assert.AreEqual(events, result);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
+using Ajf.IdentityServer3.Models;
 using Ajf.IdentityServer3.Models.Entities;
 using Ajf.IdentityServer3.Repository;
 using IdentityServer3.Core;
