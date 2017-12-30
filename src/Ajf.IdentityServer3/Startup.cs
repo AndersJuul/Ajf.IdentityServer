@@ -62,7 +62,7 @@ namespace Ajf.IdentityServer3
                 {
                     RequireSsl = ConfigurationManager.AppSettings["RequireSsl"] == "true",
                     Factory = idServerServiceFactory,
-                    SiteName = "Ajf Security Token Service",
+                    SiteName = "Anders Juuls Firma Security Token Service",
                     SigningCertificate = LoadCertificate(),
                     IssuerUri = "https://andersathome.dk/identity",
                     PublicOrigin = ConfigurationManager.AppSettings["IdentityServerUrl"],
