@@ -91,20 +91,27 @@ namespace Ajf.IdentityServer3.Config
                     {
                         "https://localhost/Ajf.RideShare.Web/",
                         "http://ajf-qa-02/RideShare/",
-                        "https://andersathome.dk/RideShare/"
+                        "https://andersathome.dk/RideShare/",
+
+                        "https://localhost/HansJuergenWeb/",
+                        "http://ajf-qa-02/HansJuergenWeb/",
+                        "https://andersathome.dk/HansJuergenWeb/"
                     }, 
                     PostLogoutRedirectUris = new List<string>()
                     {
                         "https://localhost/Ajf.RideShare.Web",
                         "http://ajf-qa-02/RideShare/",
-                        "https://andersathome.dk/RideShare/"
+                        "https://andersathome.dk/RideShare/",
+
+                        "https://localhost/HansJuergenWeb/",
+                        "http://ajf-qa-02/HansJuergenWeb/",
+                        "https://andersathome.dk/HansJuergenWeb/"
                     }, 
                     ClientSecrets = new List<Secret>()
                     {
                         new Secret("myrandomclientsecret".Sha256())
                     }  
                 }  
-
              };
         }
     }
