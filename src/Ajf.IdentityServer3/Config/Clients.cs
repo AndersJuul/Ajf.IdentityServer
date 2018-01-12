@@ -86,9 +86,9 @@ namespace Ajf.IdentityServer3.Config
                     // redirect = URI of the MVC application
                     RedirectUris = new List<string>
                     {
-                        "https://localhost/Ajf.RideShare.Web/",
-                        "http://ajf-qa-02/RideShare/",
-                        "https://andersathome.dk/RideShare/",
+                        //"https://localhost/Ajf.RideShare.Web/",
+                        //"http://ajf-qa-02/RideShare/",
+                        //"https://andersathome.dk/RideShare/",
 
                         "https://localhost/HansJuergenWeb/",
                         "http://ajf-qa-02/HansJuergenWeb/",
@@ -96,9 +96,9 @@ namespace Ajf.IdentityServer3.Config
                     },
                     PostLogoutRedirectUris = new List<string>
                     {
-                        "https://localhost/Ajf.RideShare.Web",
-                        "http://ajf-qa-02/RideShare/",
-                        "https://andersathome.dk/RideShare/",
+                        //"https://localhost/Ajf.RideShare.Web",
+                        //"http://ajf-qa-02/RideShare/",
+                        //"https://andersathome.dk/RideShare/",
 
                         "https://localhost/HansJuergenWeb/",
                         "http://ajf-qa-02/HansJuergenWeb/",
