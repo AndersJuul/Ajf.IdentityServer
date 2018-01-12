@@ -90,9 +90,9 @@ namespace Ajf.IdentityServer3.Config
                         //"http://ajf-qa-02/RideShare/",
                         //"https://andersathome.dk/RideShare/",
 
-                        "https://localhost/HansJuergenWeb/",
-                        "http://ajf-qa-02/HansJuergenWeb/",
-                        "https://andersathome.dk/HansJuergenWeb/"
+                        //"https://localhost/HansJuergenWeb/",
+                        //"http://ajf-qa-02/HansJuergenWeb/",
+                        //"https://andersathome.dk/HansJuergenWeb/"
                     },
                     PostLogoutRedirectUris = new List<string>
                     {
@@ -100,9 +100,9 @@ namespace Ajf.IdentityServer3.Config
                         //"http://ajf-qa-02/RideShare/",
                         //"https://andersathome.dk/RideShare/",
 
-                        "https://localhost/HansJuergenWeb/",
-                        "http://ajf-qa-02/HansJuergenWeb/",
-                        "https://andersathome.dk/HansJuergenWeb/"
+                        //"https://localhost/HansJuergenWeb/",
+                        //"http://ajf-qa-02/HansJuergenWeb/",
+                        //"https://andersathome.dk/HansJuergenWeb/"
                     },
                     ClientSecrets = new List<Secret>
                     {
