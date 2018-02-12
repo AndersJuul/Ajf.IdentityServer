@@ -111,6 +111,34 @@ namespace Ajf.IdentityServer3.Config
                 },
                 new Client
                 {
+                    ClientId = "mvc.owin.hybrid",
+                    ClientName = "mvc.owin.hybrid",
+                    Flow = Flows.Hybrid,
+                    AllowAccessToAllScopes = true,
+                    IdentityTokenLifetime = 10,
+                    AccessTokenLifetime = 120,
+                    RequireConsent = false,
+
+                    // redirect = URI of the MVC application
+                    RedirectUris = new List<string>
+                    {
+                        "http://localhost:49314/",
+                        "http://ajf-qa-02/Ajf.MvcTestClient.Mvc/",
+                        "https://andersathome.dk/Ajf.MvcTestClient.Mvc/"
+                    },
+                    PostLogoutRedirectUris = new List<string>
+                    {
+                        "http://localhost:49314/",
+                        "http://ajf-qa-02/Ajf.MvcTestClient.Mvc/",
+                        "https://andersathome.dk/Ajf.MvcTestClient.Mvc/"
+                    },
+                    ClientSecrets = new List<Secret>
+                    {
+                        new Secret("secret".Sha256())
+                    }
+                },
+                new Client
+                {
                     ClientId = "ridesharehybrid",
                     ClientName = "RideShare (Hybrid)",
                     Flow = Flows.Hybrid,
