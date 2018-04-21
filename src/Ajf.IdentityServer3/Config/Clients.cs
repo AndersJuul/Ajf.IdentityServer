@@ -181,13 +181,13 @@ namespace Ajf.IdentityServer3.Config
                     {
                         "https://localhost/HansJuergenWeb/",
                         "http://ajf-qa-02/HansJuergenWeb/",
-                        "https://www.andersathome.dk/hjweb/"
+                        "https://andersathome.dk/hjweb/"
                     },
                     PostLogoutRedirectUris = new List<string>
                     {
                         "https://localhost/HansJuergenWeb/",
                         "http://ajf-qa-02/HansJuergenWeb/",
-                        "https://www.andersathome.dk/hjweb/"
+                        "https://andersathome.dk/hjweb/"
                     },
                     ClientSecrets = new List<Secret>
                     {
